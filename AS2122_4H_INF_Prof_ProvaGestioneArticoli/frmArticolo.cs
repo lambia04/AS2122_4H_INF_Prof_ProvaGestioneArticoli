@@ -23,10 +23,10 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
         public DialogResult Status { get { return status; } }
 
         // TODO: (6) aggiungere property di sola lettura dei dati inseriti nella frmArticoli per l'utilizzo in frmMain
-        string Descrizione { get; }
-        string UnitaMisura { get; }
-        double Prezzo { get; }
-        int Codice { get; }
+        public string Descrizione { get { return descrizione; } }
+        public string UnitaMisura { get { return unitaMisura; } }
+        public double Prezzo { get { return prezzo; } }
+        public int Codice { get { return codice; } }
 
         public frmArticolo()
         {
@@ -36,7 +36,9 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
         private void btnSalva_Click(object sender, EventArgs e)
         {
             // TODO: (7) passaggio all' attributo/property dei dati inseriti nella frmArticoli con controllo di valorizzazione del dato
-            // ... descrizione, unitaMisura, prezzo
+            descrizione = txtDescrizione.Text;
+            unitaMisura = cmbUnitaMisura.SelectedItem.ToString();
+            prezzo = Convert.ToDouble(txtPrezzo.Text);
 
             status = DialogResult.OK;
             Close();
