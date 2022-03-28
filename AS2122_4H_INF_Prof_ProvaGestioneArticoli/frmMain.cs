@@ -32,7 +32,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
             {
                 // aggiungi l'articolo all'elenco di articoli
                 // TODO: (1) aggiungere l'articolo creato dai dati di frmArticoli nella lista articoli
-                articoli.Add(new Articolo);
+                articoli.Add(new Articolo(articoli.Count() + 1, f.Descrizione, f.UnitaMisura, f.Prezzo));
 
                 lblArticoliInseriti.Text = $"Articoli ({articoli.Count})";
             }
@@ -45,7 +45,10 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
             {
                 case "Visualizza articoli":
                     // TODO: (2) aggiungere visualizzazione articoli inseriti nella listbox
-                    // ... lstElenco.Items.Add(a.Visualizzati()); 
+                    foreach (Articolo a in articoli)
+                    {
+                        lstElenco.Items.Add(a.Visualizzati());
+                    }
                     break;
             }
         }
@@ -58,7 +61,7 @@ namespace AS2122_4H_INF_Prof_ProvaGestioneArticoli
             int index = lstElenco.FindString(curItem);
 
             // TODO: (3) aggiungere visualizzazione dettaglio articolo nelle label
-            // ... lblDescrizione.Text = articoli[index].Descrizione;
+            lblDescrizione.Text = articoli[index].Descrizione;
         }
     }
 }
